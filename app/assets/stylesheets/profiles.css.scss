@@ -1,0 +1,81 @@
+// Place all the styles related to the Profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profiles {
+    p {
+        margin: 0px;
+    }
+
+    h3 {
+        align: right;
+    }
+
+    form {
+        float: right;
+    }
+
+    #list_profiles{
+
+        margin-top: 10px;
+        border-radius: 4px;
+
+        a{
+            text-decoration: none;
+        }
+
+
+
+        .name_column{
+            min-width: 200px;
+
+        }
+
+        .profile_picture {
+            img {
+            height: 40px;
+        }
+        }
+
+
+        border-spacing: 0px;
+
+        tr {
+            background-color: rgba(179, 179, 179, 0.2);
+
+            td {
+                padding: 5px;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            }
+
+        }
+    }
+
+    article#profile {
+
+        #profile_header {
+
+
+            #profile_name {
+                display: inline;
+                bottom: 55px;
+                position: relative;
+            }
+
+            font-size: 40px;
+            vertical-align: middle;
+
+            img {
+                height: 120px;
+                margin-bottom: 20px;
+            }
+
+
+        }
+
+     #edit_profile {
+        float: right;
+     }
+    }
+}
+

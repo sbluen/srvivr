@@ -1,0 +1,195 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree .
+*/
+
+html {
+}
+
+body {
+    margin: 0 auto;
+    background-image:url("background.png");
+	background-repeat: repeat-x;
+
+
+
+}
+
+#wrapper_header {
+    background:  black;
+    box-shadow: 1px 0px 1px rgba(0,0,0,.75);
+    width: 100%;
+
+
+
+    header {
+        margin:  0 auto;
+        width: 800px;
+        height: 80px;
+        text-align: center;
+        color: white;
+
+
+        a {
+            text-decoration: none;
+
+        }
+
+
+        nav {
+                a {
+                    font-family: arial;
+                    color: white;
+                    padding: 10px;
+                    font-size: 17px;
+
+                }
+
+                ul {
+                    list-style-type: none;
+                    position: relative;
+                    left: -38px;
+
+
+                    li {
+                        display: inline;
+                        position: relative;
+                        float: left;
+                        height: 33px;
+                        min-width: 80px;
+                        padding-top: 10px;
+                        border-radius: 2px 2px 0px 0px;
+                        top: 40px;
+                    }
+
+                    li:hover {
+                        background: #b3b3b3;
+                        a {
+                            color: black;
+                        }
+                    }
+
+
+
+                }
+            }
+
+        ul#login_box {
+            float: right;
+            position: relative;
+            bottom: -55px;
+            list-style-type: none;
+            z-index: 5;
+            padding: 0px;
+            margin: 0px;
+            min-width: 100px;
+
+            ul{
+               list-style-type:none;
+               display: none;
+               position: absolute;
+               align: center;
+               padding: 0px;
+               width: 90px;
+
+             }
+
+            li:hover ul {
+                display: block;
+                background: black;
+	            padding: 5px;
+	            border-radius: 0px 0px 5px 5px;
+                }
+
+             }
+
+
+
+         a{
+            color: white;
+            padding: 5px;
+            font-family: arial;
+            font-size: 14px;
+            border: solid 1px transparent;
+            border-radius: 3px;
+            }
+
+        a:hover{
+           color: gray;
+        }
+
+
+    }
+}
+
+#wrapper_main {
+	margin: 0 auto;
+	width: 800px;
+	border-radius: 2px;
+
+
+
+    #main {
+        width: 96%;
+    	background-color: rgba(255, 255, 255, 0.6);
+    	border-radius: 5px;
+    	padding: 15px;
+    	margin-top: 20px;
+    	float: left;
+    	box-shadow:2px 2px 2px rgba(0,0,0,0.3);
+
+        a{
+            color: #535353;
+        }
+    }
+
+
+}
+
+
+#refresh_sightings {
+            display:none;
+    }
+
+#notifications_style {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 255, 0.2);
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 0px;
+
+    #zombie_sightings {
+        padding: 5px;
+    }
+
+    a {
+        color: #535353;
+
+    }
+
+    .timestamp {
+       font-style: italic;
+    }
+
+
+}
+
+
+
+input {
+    border-radius: 5px;
+}
+
+.divider {
+	border: 1px solid rgba(0,0,0,0.2);
+	border-radius: 1px;
+	clear:both;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	}
+

@@ -1,0 +1,27 @@
+#map_canvas{
+    width: 100%;
+    height:100%;
+}
+
+#locations_map{
+    width: 100%;
+    height:600px;
+}
+
+.controlui{
+    text-align: left; position: relative; font-family: Arial, sans-serif; -webkit-user-select: none; font-size: 12px; line-height: 160%; padding-top: 0px; padding-right: 6px; padding-bottom: 0px; border-top-left-radius: 2px 2px; border-top-right-radius: 2px 2px; border-bottom-right-radius: 2px 2px; border-bottom-left-radius: 2px 2px; -webkit-box-shadow: rgba(0, 0, 0, 0.347656) 2px 2px 3px; box-shadow: rgba(0, 0, 0, 0.347656) 2px 2px 3px; direction: ltr; color: black; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(169, 187, 223); border-right-color: rgb(169, 187, 223); border-bottom-color: rgb(169, 187, 223); border-left-color: rgb(169, 187, 223); padding-left: 6px; font-weight: bold; background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(254, 254, 254)), to(rgb(243, 243, 243))); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; background-position: initial initial; background-repeat: initial initial;
+    cursor:pointer;
+}
+
+.controltext{
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+    padding-left:4px;
+    padding-right:4px;
+
+}
+
+.controldiv{
+    padding:5px;
+}
+

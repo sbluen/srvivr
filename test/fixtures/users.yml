@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: jdoe
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  lng: 34.4149
+  lat: -119.8431
+  usertype: admin

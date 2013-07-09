@@ -1,0 +1,19 @@
+<!--See page 135 of agile-web-develpment for more info on the rendering of these templates.-->
+<!--The next line corrects the given name of the variable. -->
+<%invite=list_friend_invite%>
+	<div id='item'>
+	<tr>
+		<td class="profile_picture"><%=image_tag(get_image_path_for_profile(invite.inviter.profile))%></td>
+        <td class="name_column"><%= link_to invite.inviter.name, invite.inviter.profile %></td>
+		<td>
+		<%= link_to 'Accept',
+		{:controller=>'invite', :action=>'accept', :other_id=>invite.inviter_id},
+		 :remote=>true, :post=>true, :class=>'remove_item', :method=>'post'%>
+		</td>
+		<td>
+		<%= link_to 'Decline',
+		{:controller=>'invite', :action=>'decline', :other_id=>invite.inviter_id}, 
+		:remote=>true, :post=>true, :class=>'remove_item', :method=>'post' %>
+		</td>
+	</tr>
+	</div>

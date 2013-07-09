@@ -1,0 +1,43 @@
+<!--This page is no longer used. -->
+<% if flash[:notice] %>
+	<p id="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<h3> Profiles
+<%= form_tag 'profiles', :method => 'get' do %>
+  	  <img src="assets/search.png" height=15>
+      <%= submit_tag "Search", :name => nil %>
+      <%= text_field_tag :search, params[:search] %>
+
+<% end %>
+  </h3>
+
+<div class="divider"></div>
+
+<table id="list_profiles">
+
+<% @profiles.each do |profile| %>
+
+          <tr>
+            <td class="profile_picture"><%= image_tag(profile.image_url) %></td>
+            <td class="name_column"><%= link_to profile.username, profile %></td>
+            <td> <img src="assets/add_friend.png" height=14>
+            <%if profile.user_id != session[:user_id] then%>
+            <%if @my_friends.include? profile then%>
+                <%= link_to 'Remove as friend', {controller: 'remove_friend', method: 'delete', :other_id => profile.user_id}%>
+            <%else%>
+                <%= link_to 'Add as friend', {controller: 'add_friend', method: 'post', :other_id => profile.user_id}%>
+            <%end%>
+                </td>
+            <td>
+              <img src="assets/tag_zombie.jpg" height=14>
+              <%= link_to 'Report zombie', {controller: 'report', method: 'post', :other_id => profile.user_id}%></td>
+        <%end%>
+        <%if logged_in_as_admin? then%>
+            <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+            <td><%= link_to 'Destroy', profile, confirm: 'Are you sure?', method: :delete %></td>
+        <%end%>
+        </tr>
+<% end %>
+
+</table>

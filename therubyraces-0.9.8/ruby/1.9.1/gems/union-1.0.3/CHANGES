@@ -1,0 +1,16 @@
+== 1.0.3 - 22-Sep-2011
+* Refactored the Rakefile. Removed the old install task, added
+  a default task, and reorganized the gem related tasks.
+* Minor fix/update for gemspec.
+
+== 1.0.2 - 3-Oct-2009
+* Some gemspec updates and one fix.
+* Added the :gem rake task.
+
+== 1.0.1 - 31-Jul-2009
+* Now compatible with Ruby 1.9.x
+* Changed the license to Artistic 2.0.
+* Some gemspec updates, including the addition of a license.
+
+== 1.0.0 - 10-Jun-2008
+* Initial release

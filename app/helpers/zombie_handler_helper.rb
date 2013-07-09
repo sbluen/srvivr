@@ -1,0 +1,2 @@
+module ZombieHandlerHelper
+end

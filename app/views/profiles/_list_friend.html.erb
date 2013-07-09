@@ -1,0 +1,39 @@
+<!--This is a copy of <project path>/views/users/_list_user.html.erb. It is for an additional level of
+	interactivity. It is displayed when the user visits his or her own profile.  
+	Currently, the only difference is in the class of the remove as friend link.-->
+	
+<!--Next line is a correction for the given name of the variable.-->
+<%user=list_friend%>
+
+
+
+          <tr>
+            <td class="profile_picture"><%=image_tag(get_image_path_for_profile(user.profile))%></td>
+            <td class="name_column"><%= link_to user.name, user.profile %></td>
+            <td> 
+            <%if user.id != session[:user_id] then%>
+				<%if @my_friends.include? user then%>
+					<td id='invite_link'><%= link_to 'Remove as friend',
+					{:controller=>'remove_friend', :action=>'delete', :other_id=>user.id},
+					 :remote=>true, :post=>true, :class=>'remove_row', :method=>'post'%></td>
+				<%elsif @my_friend_invites.include? user then%>
+					<td id='invite_link'>Invited</td>
+				<%else%>
+					<img src="/assets/add_friend.png" height=14>
+					<td id='invite_link'><%= link_to 'Add as friend',
+					{:controller=>'add_friend', :action=>'create', :other_id=>user.id},
+					 :remote=>true, :post=>true, :class=>'set_cell_to_invited', :method=>'post'%></td>
+				<%end%>
+			</td>
+            <td>
+              	<img src="/assets/tag_zombie.jpg" height=14>
+              	<%= link_to 'Report as zombie',
+				{:controller=>'report', :action=>'create', :other_id=>user.id},
+				 :remote=>true, :post=>true, :class=>'update_report_link', :method=>'post'%>  
+            </td>
+        <%end%>
+        <%if logged_in_as_admin? then%>
+            <td><%= link_to 'Edit', edit_profile_path(user.profile) %></td>
+            <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+        <%end%>
+        </tr>

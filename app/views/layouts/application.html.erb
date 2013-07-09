@@ -1,0 +1,79 @@
+<%require 'application_controller'%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Srvivr</title>
+  <%= stylesheet_link_tag    "application" %>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body class="<%= controller.controller_name %>">
+
+    <div id="wrapper_header">
+        <header>
+                <ul id="login_box">
+                    <li>
+                      <!-- Checks if a user is logged in !-->
+
+                        <% if session[:user_id] %>
+                               <%= link_to User.find(session[:user_id]).name, Profile.find_by_user_id(session[:user_id]) %>
+                        <ul>
+                            <li><%= link_to 'Edit Profile', '/edit_my_profile' %> </li>
+                            <li><%= link_to 'Sign out', logout_path, method: :delete %></li>
+                        </ul>
+                        <% else %>
+
+                              <%= link_to 'Register', new_user_path %>
+                              <%= link_to 'Sign in', login_path %>
+
+                          <% end %>
+                  </li>
+                </ul>
+
+            <!-- Naviation !-->
+            <nav id="header_menu">
+                    <ul>
+
+                    <li><a href="/"><img src="/assets/logo_white.png" height="22" border="0" /></a></li>
+                    <li> <%= link_to 'Users', users_path %></li>
+                    <li><%= link_to 'Locations Map', map_locations_path %></li>
+<!--
+                    <li><%= link_to 'Zombie Sightings', zombie_sightings_path %></li>
+-->
+                    <%if logged_in_as_admin? then%>
+                      <!-- admin_path is defined as named route -->
+                    	<li><%= link_to 'Administration', admin_path %></li>
+                    <%end%>
+                    </ul>
+            </nav>
+
+         </header>
+     </div>
+
+
+
+
+    <div id="wrapper_main">
+        <div id="main">
+          <%= yield %>
+        </div>
+
+    </div>
+
+    <%= link_to 'Refresh', zombie_sightings_path, id:"refresh_sightings",
+          remote: true, style: "display: none" %>
+      <div id="notifications">
+        <%= render :partial => 'zombie_sightings/notifications' %>
+      </div>
+
+
+      <script>
+           $.every(60, 'sec', function () { $( "a#refresh_sightings" ).click(); });
+      </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,25 @@
+<%= form_for(@zombie_sighting) do |f| %>
+  <% if @zombie_sighting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@zombie_sighting.errors.count, "error") %> prohibited this zombie_sighting from being saved:</h2>
+
+      <ul>
+      <% @zombie_sighting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= text_field_tag(:lat, "Lat") %>
+  </div>
+
+  <div class="field">
+    <%= text_field_tag(:lng, "Lng")%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

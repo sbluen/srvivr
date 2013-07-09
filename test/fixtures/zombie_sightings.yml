@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+zombie:
+  lng: 251
+  lat: 251
+
+zombie2:
+  lng: 252
+  lat: 251
+
+zombie3:
+  lng: 253
+  lat: 253
+
+zombie_near_ucsb1:
+  lng: 31.4149
+  lat: -118.8431
+
+zombie_near_ucsb2:
+  lng: 32.4149
+  lat: -120.8431

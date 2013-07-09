@@ -1,0 +1,18 @@
+<table>
+	<% @users.each do |user| %>
+	  <tr>
+	    <td><%= user.name %></td>
+	    <td><%= link_to 'Show', user %></td>
+	    <td><%= link_to 'Edit', "/profiles/#{user.id}/edit" %></td>
+	    <td>
+	    	<!--source: http://stackoverflow.com/questions/623051/radio-buttons-on-rails-->
+	    	<label for="usertype">Usertype:</label>
+		  	<% ['zombie', 'member', 'admin'].each do |usertype| %>
+		    	<%= radio_button_tag 'usertype_'+'_'+user.id.to_s(), usertype, user.usertype == usertype %>
+		    	<%= label_tag "usertype_#{usertype}", usertype.humanize %>
+	  		<% end %>
+	    </td>
+	  </tr>
+	<% end %>
+</table>
+

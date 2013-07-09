@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  inviter_id: 
+  invitee_id: 
+  confirmed: false
+
+two:
+  inviter_id: 
+  invitee_id: 
+  confirmed: false

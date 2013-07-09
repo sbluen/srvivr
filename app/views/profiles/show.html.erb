@@ -1,0 +1,48 @@
+<article id="profile">
+    <p id="notice"><%= notice %></p>
+
+    <span id="profile_header">
+
+      <%=image_tag(get_image_path_for_profile(@profile))%>
+
+      <h1 id="profile_name"><%= @profile.user.name %></h1>
+    </span>
+
+    <p id="edit_profile">
+    <%if logged_in_as_admin? then%>
+    <%= link_to 'Edit this profile', edit_profile_path(@profile) %>
+    <br />
+    <%elsif @profile.user_id==session[:user_id] then%>
+    <%= link_to 'Edit your profile', '/edit_my_profile'%>
+    <br />
+    <%end%>
+    </p>
+
+    <p>Age: <%= @profile.age %></p>
+    <p>Description: <%= @profile.description %></p>
+
+    <div class="divider"></div>
+    <span class="sightings">
+        <h4>Recent sightings:</h4>
+    </span>
+
+    <h4>Friends List</h4>
+
+<%if not @friends.nil? then%>
+
+	<table id="list_profiles">
+	<%=will_paginate @friends%>
+	<%if @profile.user_id == session[:user_id] then%>
+		<%=render :partial => '/profiles/list_friend', :collection => @friends%>
+	<%else%>
+		<%=render :partial => '/users/list_user', :collection => @friends%>
+	<%end%>
+	</table>
+<%else%>
+	This user has no friends.
+<%end%>
+
+</article>
+
+
+

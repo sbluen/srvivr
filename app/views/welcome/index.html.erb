@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<p style="font-size: 64px; font-family: 'Josefin Sans', sans-serif;">
+  Srviv<span style="font-weight:bold; color:#a32601">r</span>
+</p>
+
+<% if session[:user_id] then%>
+    <p>Welcome <%=User.find(session[:user_id]).name%>, <%= link_to 'Sign out', logout_path, method: :delete %></p>
+    <!-- See page 135 of agile-web-develpment for more info on the rendering. -->
+    <!--Idea source: http://stackoverflow.com/questions/2592109/how-to-pass-a-javascript-variable-to-rails-controller-->
+    <!--
+	<%= link_to 'You have <span id="friendcount">'+session[:number_of_friend_invites].to_s()+'</span> friend invites.',
+	:controller=>'application', :action=>'show_friend_invites', :remote=>true %>
+	-->
+	<%if @friend_inviters then%>
+		You have <span id="friendcount"><%=session[:number_of_friend_invites].to_s()%></span> friend invites.
+		<br />
+		<table>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+	    	<%=render :partial => '/invite/list_friend_invite', :collection => @friend_inviters%>
+	    </table>
+    <%end%>
+<% else %>
+    <p><%= link_to 'Sign in', login_path %></p>
+<% end %>
+
+      	<% if flash[:notice] %>
+			<p id="notice"><%= flash[:notice] %></p>
+		<% end %>
+
+<p><%= link_to 'Show Locations', locations_path %></p>
+
+<p><%= link_to 'Show Locations Map', map_locations_path %></p>
+
+<!--
+<p><%= link_to 'Show Zombie Sightings', zombie_sightings_path %></p>
+-->
+
+</body>
+</html>
+

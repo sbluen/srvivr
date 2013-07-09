@@ -1,0 +1,6 @@
+<%= hidden_div_if(nearby_recent_sightings.empty? , id: 'notifications_style') do %>
+    <table id="zombie_sightings">
+        <%= render(nearby_recent_sightings) %>
+    </table>
+<% end %>
+

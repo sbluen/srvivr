@@ -1,0 +1,23 @@
+
+<article id="user">
+    <p id="notice"><%= notice %></p>
+
+    <h3>
+      <% if @user.image_url.blank? then %>
+      <%= image_tag(@user.gender == ('m' or 'M') ? 'unknown_male.jpg' : 'unknown_female.jpg') %>
+      <% else %>
+      <%= image_tag(@user.image_url) %>
+      <% end %>
+      <%= @user.name %>
+    </h3>
+    <p>Age: <%= @user.age %></p>
+    <p>Description: <%= @user.description %></p>
+
+    <div class="divider"></div>
+    <span class="sightings">
+        <h4>Recent sightings:</h4>
+    </span>
+
+<%= link_to 'Edit', edit_profile_path(@user.id) %> |
+<%= link_to 'Back', users_path %>
+

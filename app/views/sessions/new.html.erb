@@ -1,0 +1,32 @@
+<div>
+
+  <%= form_tag do %>
+        <% if flash[:alert] %>
+	    	<p id="error_explanation"><%= flash[:alert] %></p>
+	  	<% end %>
+      	<% if flash[:notice] %>
+			<p id="notice"><%= flash[:notice] %></p>
+		<% end %>
+      <fieldset>
+        <legend>Log In</legend>
+        <div>
+          <%= label_tag :name, 'Name:' %>
+          <%= text_field_tag :name, params[:name] %>
+        </div>
+        <div>
+          <%= label_tag :password, 'Password:' %>
+          <%= password_field_tag :password, params[:password] %>
+        </div>
+        <div>
+          <%= submit_tag "Login" %>
+        </div>
+      </fieldset>
+  <% end %>
+
+<!--This if statement keeps users from being teased into getting admin access-->
+<%if not session[:admin_required] then%>
+  <p><%= link_to 'Register', new_user_path %></p>
+<%else%>
+  <% session[:admin_required]=false %><!--don't need to keep the user in admin login mode more than once-->
+<%end%>
+</div>

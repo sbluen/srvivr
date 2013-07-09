@@ -1,0 +1,37 @@
+<%= form_for(@profile, method: :put, url: 'edit_my_profile') do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <b>Hello, <%= @profile.user.name %>! </b>
+  </p>
+  <div class="field">
+    How old are you? *<br />
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    What is your gender? *<br />
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    What do you look like? Please provide URL to your image.<br />
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    What would you like to say?<br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

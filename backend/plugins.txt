@@ -1,0 +1,2 @@
+com.srvivr.fetcher.plugins.DummyFetcher
+#not.a.plugin

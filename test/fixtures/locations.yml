@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  lng: 9.99
+  lat: 9.99
+
+
+ucsb:
+  id: 2
+  lng: 34.4149
+  lat: -119.8431
+
+near_ucsb1:
+  id: 3
+  lng: 31.4149
+  lat: -118.8431
+
+near_ucsb2:
+  id: 4
+  lng: 32.4149
+  lat: -120.8431

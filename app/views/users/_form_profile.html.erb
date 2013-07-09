@@ -1,0 +1,51 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+  <legend>Enter User Profile Details</legend>
+
+    <p>
+      <b>Hello, <%= @user.name %>! </b>
+    </p>
+    <!-- assume passwords could be overwritten -->
+    <div>
+	    <%= f.label :password, 'New password' %>:
+	    <%= f.password_field :password, size: 40 %>
+	  </div>
+    <div>
+	    <%= f.label :password_confirmation, 'Confirm new password_confirmation' %>:
+	    <%= f.password_field :password_confirmation, size: 40 %>
+    </div>
+    <div class="field">
+      How old are you? *<br />
+      <%= f.number_field :age %>
+    </div>
+    <div class="field">
+      What is your gender? *<br />
+      <%= f.text_field :gender %>
+    </div>
+    <div class="field">
+      What do you look like? Please provide URL to your image.<br />
+      <%= f.text_field :image_url %>
+    </div>
+    <div class="field">
+      What would you like to say?<br />
+      <%= f.text_area :description %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
+
+<% end %>
+

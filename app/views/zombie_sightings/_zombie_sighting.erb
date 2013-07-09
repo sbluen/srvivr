@@ -1,0 +1,5 @@
+<tr class="zombie_sighting_<%= zombie_sighting.id %>">
+      <td class="timestamp"><%= zombie_sighting.created_at.strftime("%H:%M") %></td>
+      <td><%= link_to 'Zombie Sighting', map_locations_path %>
+      </td>
+</tr>
