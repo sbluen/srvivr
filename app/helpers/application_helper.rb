@@ -1,6 +1,6 @@
 module ApplicationHelper
   
-    def logged_in?
+  def logged_in?
     return User.find_by_id(session[:user_id])
   end
 
