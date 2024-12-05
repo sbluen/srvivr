@@ -36,7 +36,7 @@ begin
     puts "CREATE INDEX big_id_index ON friends (big_id)"
     CONN.execute("CREATE INDEX big_id_index ON friends (big_id)")
     
-  #Rails appearantly isn't letting me catch the specific type of exception.
+  #Rails apparently isn't letting me catch the specific type of exception.
   rescue
     puts "Indices were already created."
   end
